@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Characters</string>
+    <string name="id">id</string>
+    <string name="name">name</string>
+    <string name="status">status</string>
+    <string name="species">species</string>
+    <string name="type">type</string>
+    <string name="gender">gender</string>
+    <string name="created">Characters</string>
+    <string name="Page">page</string>
+</resources>
