@@ -1,43 +1,41 @@
 package com.example.schoolorgonizer.lessonSchedule.daySchedule
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.characters.data.Character
-import com.example.characters.database.MessageEntity
-import com.example.myhomework.homework16.database.MessageRepository
+import androidx.lifecycle.*
+import com.example.characters.data.Charac
+import com.example.characters.database.CharacterEntity
+import com.example.myhomework.homework16.database.CharacterRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class DayScheduleViewModel(
 
-    private val lessonRepository: MessageRepository
+    private val characRepository: CharacterRepository
 ) : ViewModel() {
 
 
-//    val lessonsListLiveData: MutableLiveData<List<Character>> = MutableLiveData()
-//init {
-//    fun getList(date: Character) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//
-//            lessonsListLiveData.postValue(lessonRepository.getMessagesList(date))
-//        }
-//
-//    }
-//}
-//
-//
-//    fun addMessageToDatabase(
-//        id: Long,
-//         name: String,
-//        status: String,
-//         species: String
-//        ) {
-//
-//        val newLesson = MessageEntity( id, name, status, species, status, )
-//
-//        viewModelScope.launch {
-//            lessonRepository.addMessages(newLesson)
-//        }
-//    }
+    val liveData: LiveData<List<Charac>> =
+        characRepository.getCharacterList().asLiveData()
+
+
+
+
+
+
+    fun addMessageToDatabase(
+        id: Long,
+         name: String,
+        status: String,
+         species: String,
+        image: String,
+        type: String,
+        gender: String,
+        created: String
+        ) {
+
+        val newCharac = CharacterEntity(  name, id, status, species, image,type,gender,created)
+
+        viewModelScope.launch {
+            characRepository.addLesson(newCharac)
+        }
+    }
     }

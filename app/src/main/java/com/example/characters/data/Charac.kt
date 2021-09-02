@@ -1,8 +1,8 @@
 package com.example.characters.data
 
-data class Character(
-    val name: String,
+data class Charac (
     val id: Long,
+    val name: String,
     val status: String,
     val species: String,
     val image: String,

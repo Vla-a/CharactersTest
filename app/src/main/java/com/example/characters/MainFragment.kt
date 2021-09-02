@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.Observer
@@ -46,10 +47,13 @@ class MainFragment : Fragment() {
         })
 
         binding!!.btnInfo.setOnClickListener {
+
             var page: Long = 1
-            if (binding!!.editTextPage.text.toString().toLong() < 364) {
+            if (binding!!.editTextPage.text.toString().toLong() < 35) {
                 page = binding!!.editTextPage.text.toString().toLong()
 
+            } else {
+                Toast.makeText(context, "No page", Toast.LENGTH_SHORT).show()
             }
             with(binding!!.editTextName) {
                 myViewModel.addCount(text.toString(), page)

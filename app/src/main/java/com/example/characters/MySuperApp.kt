@@ -1,6 +1,8 @@
 package com.example.characters
 
 import android.app.Application
+import com.example.characters.database.CharacterDatabase
+import com.example.characters.database.DatabaseConstructor
 import com.example.characters.restApi.ApiRepository
 import com.example.characters.restApi.CharacterApi
 import org.koin.android.ext.koin.androidContext
@@ -14,7 +16,7 @@ class MySuperApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@MySuperApp)
-            modules(listOf(repositoryModule, viewModels, currencyApi))
+            modules(listOf(repositoryModule, viewModels, currencyApi, storageModule))
         }
     }
 
@@ -24,12 +26,17 @@ class MySuperApp : Application() {
     }
 
     private val repositoryModule = module {  //создаем репозитории
-        factory { ApiRepository(get()) }
+        factory { ApiRepository(get(),get()) }
 
     }
 
     private val currencyApi = module {
         single { CharacterApi.get() }
+    }
+
+    private val storageModule = module {
+        single { DatabaseConstructor.create(get()) }  //создаем синглтон базы данных
+        factory { get<CharacterDatabase>().CharacterDao() } //предоставляем доступ для конкретной Dao (в нашем случае NotesDao)
 
     }
 
