@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.characters.data.Character
+import com.example.characters.data.Charac
 import com.example.characters.data.CharacterAdapter
 import com.example.characters.databinding.FragmentMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,7 +34,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var listCharacter: MutableList<Character> = mutableListOf()
+        var listCharacter: MutableList<Charac> = mutableListOf()
         val currencyAdapter = CharacterAdapter(listCharacter) { clickListener(it) }
 
         binding!!.rvCurrency.layoutManager =
@@ -45,23 +44,17 @@ class MainFragment : Fragment() {
         myViewModel.currencyLiveData.observe(this.viewLifecycleOwner, Observer {
             currencyAdapter.update(it)
         })
+        myViewModel.nameListLiveData.observe(this.viewLifecycleOwner, Observer {
+            currencyAdapter.update(it)
+        })
 
         binding!!.btnInfo.setOnClickListener {
-
-            var page: Long = 1
-            if (binding!!.editTextPage.text.toString().toLong() < 35) {
-                page = binding!!.editTextPage.text.toString().toLong()
-
-            } else {
-                Toast.makeText(context, "No page", Toast.LENGTH_SHORT).show()
-            }
-            with(binding!!.editTextName) {
-                myViewModel.addCount(text.toString(), page)
-            }
+            val name = binding!!.editTextName.text.toString()
+            myViewModel.getList(name)
         }
     }
 
-    private fun clickListener(character: Character) {
+    private fun clickListener(character: Charac) {
         this.findNavController().navigate(MainFragmentDirections.toMain2Fragment())
 
         setFragmentResult(TEST, Bundle().apply {

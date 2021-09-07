@@ -7,8 +7,8 @@ import com.bumptech.glide.Glide
 import com.example.characters.databinding.ItemCharacterBinding
 
 class CharacterAdapter(
-    private val characterList: MutableList<Character> = mutableListOf(),
-    private val clickListener: (Character) -> Unit
+    private val characterList: MutableList<Charac> = mutableListOf(),
+    private val clickListener: (Charac) -> Unit
 ) : RecyclerView.Adapter<CharacterAdapter.CharacterViewHolder>() {
 
 
@@ -26,7 +26,7 @@ class CharacterAdapter(
         holder.bind(characterList[position])
     }
 
-    fun update(newCharacterList: List<Character>) {
+    fun update(newCharacterList: List<Charac>) {
         characterList.clear()
         characterList.addAll(newCharacterList)
         notifyDataSetChanged()
@@ -34,10 +34,10 @@ class CharacterAdapter(
 
     class CharacterViewHolder(
         private val bindingView: ItemCharacterBinding,
-        private val clickListener: (Character) -> Unit
+        private val clickListener: (Charac) -> Unit
     ) : RecyclerView.ViewHolder(bindingView.root) {
 
-        fun bind(item: Character) {
+        fun bind(item: Charac) {
             bindingView.tv1.text = item.id.toString()
             bindingView.tv2.text = item.name
 

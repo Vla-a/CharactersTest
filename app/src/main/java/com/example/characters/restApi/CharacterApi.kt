@@ -12,8 +12,7 @@ interface CharacterApi {
 
     @GET("https://rickandmortyapi.com/api/character/?")
     suspend fun getCharacterList(
-       @Query("name") name: String,
-        @Query("page") page: Long
+      @Query("page") page: Long
     ): CharacterResponce
 
     companion object {

@@ -2,8 +2,8 @@ package com.example.characters
 
 import android.app.Application
 import com.example.characters.database.CharacterDatabase
+import com.example.characters.database.CharacterRepository
 import com.example.characters.database.DatabaseConstructor
-import com.example.characters.restApi.ApiRepository
 import com.example.characters.restApi.CharacterApi
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -26,8 +26,8 @@ class MySuperApp : Application() {
     }
 
     private val repositoryModule = module {  //создаем репозитории
-        factory { ApiRepository(get(),get()) }
 
+        factory { CharacterRepository(get(),get()) }
     }
 
     private val currencyApi = module {

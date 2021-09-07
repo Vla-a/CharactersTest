@@ -3,9 +3,9 @@ package com.example.characters.database
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "character_table")
+@Entity(tableName = "character_table", primaryKeys = ["id", "name"])
 class CharacterEntity(
-    @PrimaryKey val name: String,
+    val name: String,
     val id: Long,
     val status: String,
     val species: String,

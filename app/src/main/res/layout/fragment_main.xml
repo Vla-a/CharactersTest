@@ -31,19 +31,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editText_page"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:background="@color/teal_200"
-        android:ems="10"
-        android:layout_margin="12dp"
-        android:paddingStart="12dp"
-        android:hint="@string/Page"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/editText_name"
-        app:layout_constraintEnd_toEndOf="@+id/editText_name"
-        app:layout_constraintStart_toStartOf="@+id/editText_name" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_info"
@@ -51,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         app:srcCompat="@drawable/ic_baseline_search_24"
-        app:layout_constraintBottom_toBottomOf="@+id/editText_page"
+        app:layout_constraintBottom_toBottomOf="@+id/editText_name"
         app:layout_constraintStart_toEndOf="@+id/editText_name"
         app:layout_constraintTop_toTopOf="@+id/editText_name" />
 

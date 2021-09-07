@@ -19,4 +19,5 @@ object DatabaseConstructor {
             CharacterDatabase::class.java,
             "character_database"
         ).build()
+
 }
