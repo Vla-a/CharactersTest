@@ -5,6 +5,7 @@ import com.example.characters.database.CharacterDatabase
 import com.example.characters.database.CharacterRepository
 import com.example.characters.database.DatabaseConstructor
 import com.example.characters.restApi.CharacterApi
+import com.example.characters.screen.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin

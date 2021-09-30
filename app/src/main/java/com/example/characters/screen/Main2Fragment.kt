@@ -1,4 +1,4 @@
-package com.example.characters
+package com.example.characters.screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
-import com.example.characters.MainFragment.Companion.KEY1
-import com.example.characters.MainFragment.Companion.KEY2
-import com.example.characters.MainFragment.Companion.KEY3
-import com.example.characters.MainFragment.Companion.KEY4
-import com.example.characters.MainFragment.Companion.KEY5
-import com.example.characters.MainFragment.Companion.KEY6
-import com.example.characters.MainFragment.Companion.KEY7
-import com.example.characters.MainFragment.Companion.KEY8
-import com.example.characters.MainFragment.Companion.TEST
+import com.example.characters.R
+import com.example.characters.screen.MainFragment.Companion.KEY1
+import com.example.characters.screen.MainFragment.Companion.KEY2
+import com.example.characters.screen.MainFragment.Companion.KEY3
+import com.example.characters.screen.MainFragment.Companion.KEY4
+import com.example.characters.screen.MainFragment.Companion.KEY5
+import com.example.characters.screen.MainFragment.Companion.KEY6
+import com.example.characters.screen.MainFragment.Companion.KEY7
+import com.example.characters.screen.MainFragment.Companion.KEY8
+import com.example.characters.screen.MainFragment.Companion.TEST
 import com.example.characters.databinding.FragmentMain2Binding
 
 class Main2Fragment : Fragment() {

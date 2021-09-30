@@ -1,4 +1,4 @@
-package com.example.characters
+package com.example.characters.screen
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -45,11 +45,13 @@ class MainFragment : Fragment() {
             currencyAdapter.update(it)
         })
         myViewModel.nameListLiveData.observe(this.viewLifecycleOwner, Observer {
+
             currencyAdapter.update(it)
         })
 
         binding!!.btnInfo.setOnClickListener {
             val name = binding!!.editTextName.text.toString()
+
             myViewModel.getList(name)
         }
     }

@@ -1,4 +1,4 @@
-package com.example.characters
+package com.example.characters.screen
 
 import androidx.lifecycle.*
 import com.example.characters.data.Charac
@@ -23,11 +23,11 @@ class MainViewModel(
             }
         }
     }
+
     fun getList(name: String) {
         viewModelScope.launch(Dispatchers.IO) {
 
             nameListLiveData.postValue(cRepository.getNameList(name))
         }
-
     }
 }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.characters.MainFragment"
+        android:name="com.example.characters.screen.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main">
         <action
@@ -18,7 +18,7 @@
 
     <fragment
     android:id="@+id/main2Fragment"
-    android:name="com.example.characters.Main2Fragment"
+    android:name="com.example.characters.screen.Main2Fragment"
     android:label="CallScheduleFragment"
     tools:layout="@layout/fragment_main2">
 

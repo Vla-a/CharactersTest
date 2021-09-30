@@ -12,6 +12,7 @@ class CharacterRepository(
     private val characterApi: CharacterApi
 ) {
 
+
     fun getCharacterList(): Flow<List<Charac>> =
         characterDao.getCharacterList().map { characterEntity ->
             characterEntity.map {
