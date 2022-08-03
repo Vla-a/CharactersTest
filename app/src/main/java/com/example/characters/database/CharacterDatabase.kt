@@ -10,14 +10,22 @@ import androidx.room.RoomDatabase
 abstract class CharacterDatabase : RoomDatabase() {
 
     abstract fun CharacterDao(): CharacterDao
-}
 
-object DatabaseConstructor {
-    fun create(context: Context): CharacterDatabase =
-        Room.databaseBuilder(
-            context,
-            CharacterDatabase::class.java,
-            "character_database"
-        ).build()
 
+    companion object {
+        @Volatile
+        private var instance: CharacterDatabase? = null
+
+        fun getDatabase(context: Context): CharacterDatabase =
+            instance ?: synchronized(this) {
+                instance ?: buildDatabase(context).also {
+                    instance = it
+                }
+            }
+
+        private fun buildDatabase(appContext: Context) =
+            Room.databaseBuilder(appContext, CharacterDatabase::class.java, "character_database")
+                .fallbackToDestructiveMigration()
+                .build()
+    }
 }

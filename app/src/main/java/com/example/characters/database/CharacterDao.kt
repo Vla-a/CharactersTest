@@ -3,6 +3,7 @@ package com.example.characters.database
 
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
+import retrofit2.http.GET
 
 @Dao
 interface CharacterDao {

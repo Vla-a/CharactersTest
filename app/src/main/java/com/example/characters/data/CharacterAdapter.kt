@@ -49,9 +49,9 @@ class CharacterAdapter(
                 .load(item.image)
                 .into(bindingView.tv4)
 
-            itemView.setOnLongClickListener {
+            itemView.setOnClickListener {
                 clickListener(item)
-                true
+
             }
         }
     }

@@ -19,6 +19,8 @@ import com.example.characters.screen.MainFragment.Companion.KEY7
 import com.example.characters.screen.MainFragment.Companion.KEY8
 import com.example.characters.screen.MainFragment.Companion.TEST
 import com.example.characters.databinding.FragmentMain2Binding
+import dagger.hilt.android.AndroidEntryPoint
+
 
 class Main2Fragment : Fragment() {
     private var binding: FragmentMain2Binding? = null

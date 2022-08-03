@@ -1,13 +1,14 @@
 package com.example.characters.screen
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.characters.data.Charac
-import com.example.characters.database.CharacterRepository
+import com.example.characters.repository.CharacterRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class MainViewModel(
+class MainViewModel @ViewModelInject constructor(
     private val cRepository: CharacterRepository
 ) : ViewModel() {
 
